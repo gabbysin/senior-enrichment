@@ -1,11 +1,16 @@
-import { combineReducers } from 'redux'
+import {
+  createStore,
+  applyMiddleware,
+  combineReducers
+} from 'redux';
+import createLogger from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
+import selectedNavReducer from './selectedNav'
 
-const initialState = {}
 
-const rootReducer = function(state = initialState, action) {
-  switch(action.type) {
-    default: return state
-  }
-};
+const rootReducer = combineReducers({
+  selectedNav: selectedNavReducer
+});
 
-export default rootReducer
+export default rootReducer;
+export * from './selectedNav';

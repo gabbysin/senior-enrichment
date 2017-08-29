@@ -2,10 +2,8 @@
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const {resolve} = require('path')
-
+const { resolve } = require('path')
 const pkg = require('../package.json')
-
 const app = express()
 
 if (process.env.NODE_ENV !== 'production') {
