@@ -29,14 +29,13 @@ class NewStudentForm extends React.Component {
           </div>
           <div>
           <label>Campus:</label>
-            <select> 
+            <select onChange={this.handleSelectCampus}> 
               {
                 allCampuses.map( campus =>{
                   return (
                     <option 
                       key={campus.id}
                       value={campus.id}
-                      onChange={this.handleSelectCampus}
                       >
                       {campus.name}
                     </option>
@@ -66,8 +65,9 @@ class NewStudentForm extends React.Component {
 
   handleFormSubmit(event){
     event.preventDefault();
-    const formInput = {name:this.state.nameEntry, campusId: this.selectedCampus} 
-    console.log('THIS IS THE FORM INPUT!', formInput)
+    const formInput = {name:this.state.nameEntry, campusId: this.state.selectedCampus} 
+
+    console.log(`This is the form input: ${formInput.campusId}`)
     this.props.createStudent(formInput);
   }
 } 

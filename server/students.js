@@ -33,7 +33,6 @@ router.get('/:studentId', (req,res,next) =>{
 });
 
 router.post('/', (req, res, next) => {
-  console.log('CREATE NEW USER', req.body);
   Student.create(req.body)
   .then(newStudent =>{
     res.status(201).json(newStudent)
