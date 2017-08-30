@@ -17,7 +17,7 @@ class NewStudentForm extends React.Component {
   render(){
     const allCampuses = this.props.allCampuses;
     return (
-        <form onSubmit={this.state.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit}>
           <div className="form-group">
             <label>Student Name:</label>
             <input 
@@ -35,7 +35,9 @@ class NewStudentForm extends React.Component {
                   return (
                     <option 
                       key={campus.id}
-                    >
+                      value={campus.id}
+                      onChange={this.handleSelectCampus}
+                      >
                       {campus.name}
                     </option>
                   )
@@ -84,9 +86,6 @@ class NewStudentForm extends React.Component {
       }
     }
   }
-
-
-
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(NewStudentForm);

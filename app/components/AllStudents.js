@@ -5,6 +5,7 @@ import { fetchStudents} from '../reducers';
 
 function AllStudents(props){
   const { allStudents } = props;
+  console.log('ALLSTUDENTS:', allStudents)
   return (
       <table className='table'>
       <thead>
@@ -23,10 +24,10 @@ function AllStudents(props){
               <td>
                 <span>{ student.name }</span>
               </td>
-              <td>{ student.campusId }</td>
+              <td>{ student.campus.name }</td>
               <td>
-              <button >
-                <span ></span>
+              <button className="btn btn-default">
+                <span className="glyphicon glyphicon-remove" /> X
               </button>
             </td>
             </tr>
