@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux'
-
 //ACTION TYPES 
 const SELECTED_NAV = 'SELECTED_NAV';
 

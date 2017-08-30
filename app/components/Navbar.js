@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { selectNav } from '../reducers/selectedNav';
+import { selectNav } from '../reducers';
 
 function Navbar (props){
   return (
