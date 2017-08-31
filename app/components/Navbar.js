@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import { selectNav } from '../reducers';
 
 function Navbar (props){
+  const navStyle = {
+    padding: "20px"
+  }
   return (
-    <nav>
+    <nav style={navStyle}>
       <Link 
         className="btn btn-primary btn-block" 
         to="/campus"

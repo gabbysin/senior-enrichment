@@ -16,10 +16,15 @@ class SingleCampus extends React.Component{
   render(){
     const selectedCampus = this.props.selectedCampus;
     const selectedStudents = (this.props.allStudents).filter( student => (student.campusId === selectedCampus.id));
+
+    const imgStyle = {
+      width: "350px",
+    }
+
     return (
       <div>
         <h1>{selectedCampus.name}</h1>
-        <div><img src={selectedCampus.img} /></div>
+        <div><img src={selectedCampus.img} style={imgStyle} /></div>
           <div>
             <ul>
             {

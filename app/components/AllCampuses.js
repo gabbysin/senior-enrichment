@@ -7,12 +7,12 @@ function AllCampuses(props){
   const { allCampuses } = props;
 
   const imgStyle = {
-    width: "128px",
+    width: "175px",
   }
 
   const formStyle = {
     display: "inline-block",
-    padding: "30px"
+    padding: "40px"
   }
 
   return (
@@ -35,6 +35,14 @@ function AllCampuses(props){
         </div>
       ))
     }
+    <br />
+    <br />
+    <div>
+      <NavLink
+        to={'/campus/new-campus-form'}>
+          <button>Add New Campus</button>
+      </NavLink>
+    </div>
   </div>
   )
 } 

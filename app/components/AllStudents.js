@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { fetchStudents} from '../reducers';
 
@@ -8,6 +8,8 @@ function AllStudents(props){
   console.log('ALLSTUDENTS:', allStudents)
   return (
     <div>
+      <br />
+      <br />
       <table className='table'>
       <thead>
         <tr>
@@ -36,7 +38,14 @@ function AllStudents(props){
         }
       </tbody>
     </table>
-    
+    <br />
+    <br />
+    <div>
+      <NavLink
+        to={'/student/new-student-form'}>
+          <button>Add New Student</button>
+      </NavLink>
+    </div>
   </div>
   )
 
