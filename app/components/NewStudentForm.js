@@ -17,6 +17,7 @@ class NewStudentForm extends React.Component {
   render(){
     const allCampuses = this.props.allCampuses;
     return (
+      <div>
         <form onSubmit={this.handleFormSubmit}>
           <div className="form-group">
             <label>Student Name:</label>
@@ -48,6 +49,7 @@ class NewStudentForm extends React.Component {
             <button type="submit" className="btn btn-default">Create New Student</button>
           </div>
         </form>
+      </div>
     )
   }
 

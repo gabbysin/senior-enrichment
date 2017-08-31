@@ -7,6 +7,7 @@ function AllStudents(props){
   const { allStudents } = props;
   console.log('ALLSTUDENTS:', allStudents)
   return (
+    <div>
       <table className='table'>
       <thead>
         <tr>
@@ -20,11 +21,11 @@ function AllStudents(props){
         {
           allStudents && allStudents.map(student => (
             <tr key={student.id}>
-              <td>{ student.id }</td>
+              <td><span>{ student.id }</span></td>
               <td>
-                <span>{ student.name }</span>
+                <span><Link to={`/student/${student.id}`}>{ student.name }</Link></span>
               </td>
-              <td>{ student.campus.name }</td>
+              <td><span><Link to={`/campus/${student.campusId}`}>{ student.campus.name }</Link></span></td>
               <td>
               <button className="btn btn-default">
                 <span className="glyphicon glyphicon-remove" /> X
@@ -35,6 +36,8 @@ function AllStudents(props){
         }
       </tbody>
     </table>
+    
+  </div>
   )
 
 } 

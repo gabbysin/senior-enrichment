@@ -12,7 +12,8 @@ function AllCampuses(props){
         <div  key={campus.id}>
           <NavLink 
             to={`/campus/${campus.id}`}
-            onClick={props.handleSelectCampus}>
+            onClick={props.handleSelectCampus}
+            >
             <img src={ campus.img } />
             <div >
               <h5>

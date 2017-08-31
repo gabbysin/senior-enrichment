@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { setCampus } from '../reducers';
 import axios from 'axios';
@@ -25,7 +24,7 @@ class SingleCampus extends React.Component{
             <ul>
             {
               selectedStudents.map( student => {
-                return <li>{student.name}</li>
+                return <li key={student.id}>{student.name}</li>
               })
             }
             </ul>
