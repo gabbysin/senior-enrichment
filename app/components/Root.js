@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
 import { Route, Switch } from 'react-router-dom';
+import Navbar from './Navbar';
 import AllCampuses from './AllCampuses';
 import AllStudents from './AllStudents';
+import { NewStudentForm }  from './NewStudentForm';
 import SingleCampus from './SingleCampus';
-import NewStudentForm from './NewStudentForm';
+import SingleStudent from './SingleStudent';
 import { fetchCampuses, fetchStudents } from '../reducers';
 import store from '../store'
 
@@ -25,8 +26,9 @@ export default class Root extends Component {
             <Route exact path="/campus" component={AllCampuses}/>
             <Route exact path="/student" component={AllStudents}/>
             <Route path="/campus/:campusId" component={SingleCampus}/>
+            <Route path="/student/:studentId" component={SingleStudent}/>
             <Route exact path='/student/new-student-form' component={NewStudentForm} />
-            <Route exact path ='/'component={AllCampuses} />
+            <Route exact path ='/' component={AllCampuses} />
           </Switch>
         </div>
       </div>

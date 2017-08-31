@@ -1,29 +1,29 @@
 import axios from 'axios';
 
 //ACTION TYPES 
-const FETCH_CAMPUS = 'FETCH_CAMPUS';
+const SET_CAMPUS = 'SET_CAMPUS';
 
 //ACTION CREATORS 
-export function fetchSingleCampus(campus){
-  const action = {type:FETCH_CAMPUS, campus}
+export function setSelectedCampus(campus){
+  const action = {type:SET_CAMPUS, campus}
   return action;
 }
 // REDUCER 
-export default function fetchCampusReducer (state= {}, action) {
+export default function setCampusReducer(state= {}, action) {
   switch(action.type) {
-    case FETCH_CAMPUS: return action.campus;
+    case SET_CAMPUS: return action.campus;
     default:
       return state;
   }
 }
 
-// THUNK 
-export function fetchCampus(){
+// // THUNK 
+export function setCampus(campusId){
   return function thunk (dispatch){
-    return axios.get('/api/campus/:campusId')
+    return axios.get(`/api/campus/${campusId}`)
     .then (res => res.data)
-    .then (campuses => {
-      const action = fetchSingleCampus(campus);
+    .then (campus => {
+      const action = setSelectedCampus(campus);
       dispatch(action);
     })
   }

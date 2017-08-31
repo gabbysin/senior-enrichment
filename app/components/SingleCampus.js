@@ -1,27 +1,59 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { fetchCampus } from '../reducers';
+import { setCampus } from '../reducers';
+import axios from 'axios';
+import store from '../store'
 
-function SingleCampus(props){
-  const campus = props.selectedCampus;
-  const allStudents = props.allStudents;
-  return (
-    <div>
-      <h1>{campus.name}</h1>
-      <ul>
-        <li>1-Student Name</li>
-      </ul>
-    </div>
-  )
+class SingleCampus extends React.Component{
+  constructor(props){
+    super(props);
+  }
+
+  componentWillMount(){
+    store.dispatch(setCampus(this.props.match.params.campusId));
+  }
+
+  render(){
+    const selectedCampus = this.props.selectedCampus;
+    const selectedStudents = (this.props.allStudents).filter( student => (student.campusId === selectedCampus.id));
+    return (
+      <div>
+        <h1>{selectedCampus.name}</h1>
+        <div><img src={selectedCampus.img} /></div>
+          <div>
+            <ul>
+            {
+              selectedStudents.map( student => {
+                return <li>{student.name}</li>
+              })
+            }
+            </ul>
+        </div>
+      </div>
+    )
+  }
 }
-
 const mapStateToProps = function(state){
   return {
     selectedCampus: state.selectedCampus,
     allStudents: state.allStudents
   };
+} 
+
+const mapDispatchToProps = function(dispatch, ownProps){
+  return {
+    setCampus: function(ownProps){
+      const campusId = ownProps.match.params.campusId
+      dispatch(setCampus(campusId));
+    }
+  }
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(SingleCampus);
 
-export default connect(mapStateToProps)(SingleCampus);
+// //{
+//   campus.map(student => {
+//     return <li key={student.id}>{student.name}</li>
+//   })
+// }

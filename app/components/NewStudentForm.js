@@ -66,8 +66,6 @@ class NewStudentForm extends React.Component {
   handleFormSubmit(event){
     event.preventDefault();
     const formInput = {name:this.state.nameEntry, campusId: this.state.selectedCampus} 
-
-    console.log(`This is the form input: ${formInput.campusId}`)
     this.props.createStudent(formInput);
   }
 } 
