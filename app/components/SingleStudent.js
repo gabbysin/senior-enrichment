@@ -16,21 +16,66 @@ class SingleStudent extends React.Component{
 
   render(){
     const currentStudent = this.props.selectedStudent;
-    return (
-      <div>
-        <h1>{currentStudent.name}</h1>
+    const allCampuses = this.props.allCampuses;
+    if (currentStudent.campus){ 
+      return (
+        <div>
+          <div><img src={currentStudent.campus.img} style={{width: "200px"}} /> </div>
+          <br />
+          <h3>Edit Student: {currentStudent.name}</h3>
+          <br />
           <div>
-            <span><h3></h3></span>
+            <form >
+              <div className="form-group">
+                <label style={{paddingRight:"10px"}}>Student Name:</label>
+                <input 
+                  type="text"
+                  name="studentName"
+                  defaultValue={currentStudent.name}
+                  />
+              </div>
+              <div className="form-group">
+              <label style={{paddingRight:"10px"}}>Student Email:</label>
+                <input 
+                  type="text"
+                  name="studentEmail"
+                  defaultValue={currentStudent.email}
+                  />
+              </div>
+              <div>
+              <label style={{paddingRight:"10px"}}>Campus:</label>
+                <select value={currentStudent.campus.name}> 
+                  {
+                    allCampuses && allCampuses.map( campus =>{
+                      return (
+                        <option 
+                          key={campus.id}
+                          value={campus.name}
+                          >
+                          {campus.name}
+                        </option>
+                      )
+                    })
+                  }
+                </select>
+              </div>
+              <div className="form-group">
+                <button type="submit" className="btn btn-default">Edit Student Info</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else return (<div></div>)
   }
+
 }
+
+
 const mapStateToProps = function(state){
   return {
     selectedStudent: state.selectedStudent,
-    allCampuses: state.allCampuses,
-    allStudents: state.allStudents
+    allCampuses: state.allCampuses
   };
 } 
 
@@ -39,6 +84,9 @@ const mapDispatchToProps = function(dispatch, ownProps){
     setCampus: function(ownProps){
       const studentId = ownProps.match.params.studentId
       dispatch(setCampus(studentId));
+    },
+    editStudent: function(editInput){
+      dispatch(editStudent(editInput))
     }
   }
 }

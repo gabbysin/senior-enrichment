@@ -4,6 +4,7 @@ import axios from 'axios';
 const FETCH_ALL_STUDENTS = 'FETCH_ALL_STUDENTS';
 const CREATE_NEW_STUDENT = 'CREATE_NEW_STUDENT';
 const DELETE_STUDENT = 'DELETE_STUDENT';
+const EDIT_STUDENT = 'EDIT_STUDENT';
 
 
 //ACTION CREATORS 
@@ -14,7 +15,9 @@ export function fetchAllStudents(allStudents){
 
 export const createNewStudent = newStudent =>  ({type:CREATE_NEW_STUDENT, newStudent});
 
-export const deleteOneStudent = studentId => ({type:DELETE_STUDENT, studentId})
+export const deleteOneStudent = studentId => ({type:DELETE_STUDENT, studentId});
+
+export const editOneStudent = (student, studentId) => ({type:EDIT_STUDENT, user})
 
 // REDUCER 
 export default function fetchAllCampusesReducer (state=[], action) {
@@ -22,6 +25,8 @@ export default function fetchAllCampusesReducer (state=[], action) {
     case FETCH_ALL_STUDENTS: return action.allStudents;
     case CREATE_NEW_STUDENT: return [...state, action.newStudent];
     case DELETE_STUDENT: return state.filter(student => student.id !== action.studentId);
+    case EDIT_STUDENT: return state.map( student => (
+      action.student.id === student.id ? action.user : user));
     default:
       return state;
   }
@@ -52,6 +57,14 @@ export function createStudent(formInput){
 export function deleteStudent(studentId){
   return function thunk (dispatch){
     return axios.delete(`/api/student/${studentId}`)
+    .catch(console.error);
+  }
+} 
+
+export function editStudent (student, studentId){
+  return function thunk (dispatch){
+    return axios.post(`/api/student/${studentId}`, student)
+    .then( res => dispatch(editOneStudent(student)))
     .catch(console.error);
   }
 }

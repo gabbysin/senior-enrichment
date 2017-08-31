@@ -18,9 +18,11 @@ class NewStudentForm extends React.Component {
     const allCampuses = this.props.allCampuses;
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
+        <form 
+          onSubmit={this.handleFormSubmit}
+          style={{paddingRight:"10px"}}>
           <div className="form-group">
-            <label>Student Name:</label>
+            <label style={{paddingRight:"10px"}} >Student Name:</label>
             <input 
               type="text"
               name="studentName"
@@ -29,8 +31,11 @@ class NewStudentForm extends React.Component {
               />
           </div>
           <div>
-          <label>Campus:</label>
-            <select onChange={this.handleSelectCampus}> 
+          <label 
+            style={{paddingRight:"10px"}}>Campus:</label>
+            <select 
+              onChange={this.handleSelectCampus} 
+              > 
               {
                 allCampuses.map( campus =>{
                   return (
