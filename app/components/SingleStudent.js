@@ -10,7 +10,7 @@ class SingleStudent extends React.Component{
     super(props);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     store.dispatch(setStudent(this.props.match.params.studentId));
   }
 
@@ -29,7 +29,8 @@ class SingleStudent extends React.Component{
 const mapStateToProps = function(state){
   return {
     selectedStudent: state.selectedStudent,
-    allCampuses: state.allCampuses
+    allCampuses: state.allCampuses,
+    allStudents: state.allStudents
   };
 } 
 

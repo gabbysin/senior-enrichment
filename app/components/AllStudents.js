@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { fetchStudents} from '../reducers';
+import { fetchStudents, deleteStudent } from '../reducers';
 
 function AllStudents(props){
   const { allStudents } = props;
-  console.log('ALLSTUDENTS:', allStudents)
   return (
     <div>
       <br />
@@ -29,8 +28,7 @@ function AllStudents(props){
               </td>
               <td><span><Link to={`/campus/${student.campusId}`}>{ student.campus.name }</Link></span></td>
               <td>
-              <button className="btn btn-default">
-                <span className="glyphicon glyphicon-remove" /> X
+              <button onClick={props.handleDelete} className="btn btn-default" value={student.id}> X
               </button>
             </td>
             </tr>
@@ -48,8 +46,8 @@ function AllStudents(props){
     </div>
   </div>
   )
+}
 
-} 
 
 const mapStateToProps = function(state){
   return {
@@ -57,5 +55,14 @@ const mapStateToProps = function(state){
   };
 }
 
+const mapDispatchToProps = function(dispatch, studentId){
+  return {
+    handleDelete: function(event){
+      dispatch(deleteStudent(event.target.value));
+      dispatch(fetchStudents())
+    }
+  }
+}
 
-export default connect(mapStateToProps)(AllStudents);
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllStudents);
