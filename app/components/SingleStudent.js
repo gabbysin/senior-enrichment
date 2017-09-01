@@ -26,7 +26,7 @@ class SingleStudent extends React.Component{
           <br />
           <div>
             <form >
-              <div className="form-group">
+              <div >
                 <label style={{paddingRight:"10px"}}>Student Name:</label>
                 <input 
                   type="text"
@@ -34,7 +34,7 @@ class SingleStudent extends React.Component{
                   defaultValue={currentStudent.name}
                   />
               </div>
-              <div className="form-group">
+              <div>
               <label style={{paddingRight:"10px"}}>Student Email:</label>
                 <input 
                   type="text"
@@ -59,8 +59,8 @@ class SingleStudent extends React.Component{
                   }
                 </select>
               </div>
-              <div className="form-group">
-                <button type="submit" className="btn btn-default">Edit Student Info</button>
+              <div >
+                <button type="submit">Edit Student Info</button>
               </div>
             </form>
           </div>

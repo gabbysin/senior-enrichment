@@ -21,7 +21,7 @@ class NewStudentForm extends React.Component {
         <form 
           onSubmit={this.handleFormSubmit}
           style={{paddingRight:"10px"}}>
-          <div className="form-group">
+          <div>
             <label style={{paddingRight:"10px"}} >Student Name:</label>
             <input 
               type="text"
@@ -50,8 +50,8 @@ class NewStudentForm extends React.Component {
               }
             </select>
           </div>
-          <div className="form-group">
-            <button type="submit" className="btn btn-default">Create New Student</button>
+          <div>
+            <button type="submit">Create New Student</button>
           </div>
         </form>
       </div>

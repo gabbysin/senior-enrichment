@@ -21,7 +21,6 @@ function AllCampuses(props){
       allCampuses.map(campus => (
         <div  key={campus.id} style={formStyle}>
           <NavLink 
-            className="main-all-campuses"
             to={`/campus/${campus.id}`}
             onClick={props.handleSelectCampus}
             >

@@ -10,14 +10,12 @@ function Navbar (props){
   return (
     <nav style={navStyle}>
       <Link 
-        className="btn btn-primary btn-block" 
         to="/campus"
         onClick={props.handleClick} 
         value="home">
         HOME
       </Link> <span></span>
       <Link 
-        className="btn btn-primary btn-block" 
         to="/student"
         onClick={props.handleClick} 
         value="students">

@@ -18,7 +18,7 @@ class NewCampusForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          <div className="form-group">
+          <div>
             <label>Campus Name:</label>
             <input 
               type="text"
@@ -27,7 +27,7 @@ class NewCampusForm extends React.Component {
               onChange={this.handleNameInput}
               />
           </div>
-          <div className="form-group">
+          <div>
             <label>Campus Image:</label>
             <input 
               type="text"
@@ -36,8 +36,8 @@ class NewCampusForm extends React.Component {
               onChange={this.handleImgInput}
               />
         </div>
-          <div className="form-group">
-            <button type="submit" className="btn btn-default">Create New Campus</button>
+          <div>
+            <button type="submit">Create New Campus</button>
           </div>
         </form>
       </div>

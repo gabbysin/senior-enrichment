@@ -9,13 +9,13 @@ function AllStudents(props){
     <div>
       <br />
       <br />
-      <table className='table'>
-      <thead>
+      <table className="table table-striped" >
+      <thead style={{backgroundColor:"#20B2AA"}}>
         <tr>
-          <th></th>
           <th>#</th>
           <th>Name</th>
           <th>Campus</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -28,7 +28,7 @@ function AllStudents(props){
               </td>
               <td><span><Link to={`/campus/${student.campusId}`}>{ student.campus.name }</Link></span></td>
               <td>
-              <button onClick={props.handleDelete} className="btn btn-default" value={student.id}> X
+              <button onClick={props.handleDelete} value={student.id}> X
               </button>
             </td>
             </tr>
