@@ -27,7 +27,7 @@ function AllCampuses(props){
             <img src={ campus.img }    style={imgStyle}/>
             <div >
               <h5>
-                <span>{ campus.name }</span>
+                <span>{ campus.name }</ span>
               </h5>
             </div>
           </NavLink>

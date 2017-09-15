@@ -84,10 +84,10 @@ class NewStudentForm extends React.Component {
     }
   }; 
 
-  const mapDispatchToProps = (dispatch) => {
+  const mapDispatchToProps = (dispatch, ownProps) => {
     return {
       createStudent: function(formInput){
-        dispatch(createStudent(formInput));
+        dispatch(createStudent(formInput, ownProps.history));
       }
     }
   }

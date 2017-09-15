@@ -10,10 +10,10 @@ import Root from './components/Root'
 
 // is getting imported as `render` object destructured from `react-dom` same as ReactDom.render()
 render (
-  <Provider store={store}>
-    <Router>
-     <Root/>
-    </Router>
-  </Provider>,
+<Provider store={store}>
+  <Router>
+    <Root/>
+  </Router>
+</Provider>,
   document.getElementById('main')
 )
