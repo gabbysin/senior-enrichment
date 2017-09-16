@@ -9,7 +9,7 @@ function AllStudents(props){
     <div>
       <br />
       <br />
-      <table className="table table-striped" >
+      <table className="table" >
       <thead style={{backgroundColor:"#20B2AA"}}>
         <tr>
           <th>#</th>
