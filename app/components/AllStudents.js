@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { fetchStudents, deleteStudent } from '../reducers';
 
 function AllStudents(props){
-  const { allStudents } = props;
+  const { allStudents, allCampuses } = props;
   return (
-    <div>
+    <div className="container">
       <br />
       <br />
       <table className="table" >
@@ -51,7 +51,8 @@ function AllStudents(props){
 
 const mapStateToProps = function(state){
   return {
-    allStudents: state.allStudents
+    allStudents: state.allStudents,
+    allCampuses: state.allCampuses
   };
 }
 

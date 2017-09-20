@@ -44,12 +44,13 @@ export function fetchStudents(){
   }
 } 
 
-export function createStudent(formInput){
+export function createStudent(formInput, history){
   return function thunk (dispatch){
     return axios.post('/api/student', formInput)
     .then ( newStudent => {
       const action = createNewStudent(newStudent.data);
       dispatch(action);
+      history.push('/student');
     }) 
   }
 }
