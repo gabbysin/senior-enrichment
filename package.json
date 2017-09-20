@@ -7,9 +7,7 @@
     "test": "mocha **/*.test.js *.test.js",
     "build": "webpack",
     "build-watch": "webpack -w",
-    "start": "webpack -w & nodemon server/start.js",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "build-storybook": "build-storybook"
+    "start": "webpack -w & nodemon server/start.js"
   },
   "keywords": [
     "react",
@@ -34,9 +32,6 @@
     "sequelize": "^3.24.6"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.2.6",
-    "@storybook/addon-links": "^3.2.6",
-    "@storybook/react": "^3.2.8",
     "babel": "^6.5.2",
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.7",
